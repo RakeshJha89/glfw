@@ -61,7 +61,7 @@ typedef struct _GLFWjoylistLinux
 } _GLFWjoylistLinux;
 
 
-int _glfwInitJoysticksLinux(void);
+GLFWbool _glfwInitJoysticksLinux(void);
 void _glfwTerminateJoysticksLinux(void);
 
 #endif // _glfw3_linux_joystick_h_
