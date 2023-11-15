@@ -1,11 +1,11 @@
 project "GLFW"
 	kind "StaticLib"
 	language "C"
-	staticruntime "Off"
+	staticruntime "off"
 	warnings "off"
 
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
 
 	files
 	{
@@ -98,6 +98,9 @@ project "GLFW"
 			"_CRT_SECURE_NO_WARNINGS"
 		}
 
+		postbuildcommands 	{ 	"{COPY} %{cfg.buildtarget.relpath} %{wks.location}bin/" .. outputdir .. "/Engine/",
+							}
+
 	filter "configurations:Debug"
 		runtime "Debug"
 		symbols "on"
@@ -112,7 +115,7 @@ project "GLFW"
 		runtime "Release"
 		optimize "speed"
 
-    filter "configurations:Dist"
+	filter "configurations:Dist"
 		runtime "Release"
 		optimize "speed"
-        symbols "off"
+		symbols "off"
