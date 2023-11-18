@@ -1,4 +1,4 @@
-project "GLFW"
+project "glfw"
 	kind "StaticLib"
 	language "C"
 	staticruntime "off"
@@ -9,8 +9,8 @@ project "GLFW"
 
 	files
 	{
-		"include/GLFW/glfw3.h",
-		"include/GLFW/glfw3native.h",
+		"include/glfw/glfw3.h",
+		"include/glfw/glfw3native.h",
 		"src/glfw_config.h",
 		"src/context.c",
 		"src/init.c",
@@ -50,7 +50,7 @@ project "GLFW"
 
 		defines
 		{
-			"_GLFW_X11"
+			"_GLFW_X11",
 		}
 
 	filter "system:macosx"
